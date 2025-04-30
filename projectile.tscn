@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dulmuow153dxd"]
+
+[ext_resource type="Texture2D" uid="uid://dagja3congjqk" path="res://Simple Tower Defense/Towers/Combat Towers Projectiles/spr_tower_archer_projectile.png" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://coblqkea3ssy2" path="res://projectile.gd" id="1_qxf0c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
+size = Vector2(8, 4)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_qxf0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qxf0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a85iw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://fbhxvbro6wee"]
+
+[ext_resource type="Texture2D" uid="uid://cge8c3yh3lcbp" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png" id="1_k1sas"]
+[ext_resource type="Script" uid="uid://buoiw8mr35mce" path="res://tower.gd" id="1_vedim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1sas"]
+radius = 27.0
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_vedim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -23)
+texture = ExtResource("1_k1sas")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_k1sas")
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProjectileSpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -18)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
