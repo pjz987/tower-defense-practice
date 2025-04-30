@@ -37,10 +37,13 @@ curve = SubResource("Curve2D_oi3di")
 [node name="EnemyFollow2D" parent="Path2D" instance=ExtResource("4_1ainy")]
 position = Vector2(-96, 120)
 
-[node name="Tower" parent="." instance=ExtResource("5_f2txt")]
+[node name="Towers" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tower" parent="Towers" instance=ExtResource("5_f2txt")]
 position = Vector2(232, 96)
 
-[node name="Tower2" parent="." instance=ExtResource("5_f2txt")]
+[node name="Tower2" parent="Towers" instance=ExtResource("5_f2txt")]
 position = Vector2(104, 144)
 
 [node name="EnemySpawnerTimer" type="Timer" parent="."]

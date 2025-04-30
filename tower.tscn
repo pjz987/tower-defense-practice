@@ -7,6 +7,7 @@
 radius = 27.0
 
 [node name="Tower" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_vedim")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
