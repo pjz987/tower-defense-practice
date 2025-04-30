@@ -28,6 +28,9 @@ func _input(event: InputEvent) -> void:
 				var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
 				tower.global_position = selected_cell_coords * cell_size + tower_placement_offset
 				towers.add_child(tower)
+				var data = grid_placement_tile_map_layer.get_cell_tile_data(selected_cell_coords)
+				print(data)
+				#grid_placement_tile_map_layer.set_cell(selected_cell_coords, )
 				Economy.gold -= tower_cost
 
 func _on_enemy_spawner_timer_timeout() -> void:
