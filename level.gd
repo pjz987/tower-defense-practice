@@ -24,11 +24,14 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed == true:
 			if Economy.gold >= tower_cost:
-				var tower = TOWER_SCENE.instantiate()
 				var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
-				tower.global_position = selected_cell_coords * cell_size + tower_placement_offset
-				towers.add_child(tower)
-				Economy.gold -= tower_cost
+				var data: TileData = grid_placement_tile_map_layer.get_cell_tile_data(selected_cell_coords)
+				if data != null:
+					grid_placement_tile_map_layer.set_cell(selected_cell_coords, -1) # makes the TileData null
+					var tower = TOWER_SCENE.instantiate()
+					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset
+					towers.add_child(tower)
+					Economy.gold -= tower_cost
 
 func _on_enemy_spawner_timer_timeout() -> void:
 	var enemy_follow = ENEMY_FOLLOW_SCENE.instantiate()
