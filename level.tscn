@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://u8lyraii0841"]
+[gd_scene load_steps=20 format=4 uid="uid://u8lyraii0841"]
 
 [ext_resource type="Script" uid="uid://dfi1ut6rfxco6" path="res://level.gd" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://dg7so6yfbhdax" path="res://Simple Tower Defense/Environment/Grass/spr_grass_02.png" id="2_0b4ue"]
@@ -15,12 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://0ogptj6l3t4q" path="res://Simple Tower Defense/Environment/Decoration/spr_rock_01.png" id="11_42xju"]
 [ext_resource type="Texture2D" uid="uid://b68loiovkvwba" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_02.png" id="12_v7sqt"]
 [ext_resource type="Texture2D" uid="uid://cesfs6brfehxa" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_01.png" id="13_ilwjd"]
+[ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle.tscn" id="14_5pxul"]
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -96, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 72, 0, 0, 0, 0, 200, 72, 0, 0, 0, 0, 200, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 168, 0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 264, 152, 0, 0, 0, 0, 312, 152)
+"points": PackedVector2Array(0, 0, 0, 0, -96, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 72, 0, 0, 0, 0, 200, 72, 0, 0, 0, 0, 200, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 168, 0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 264, 152)
 }
-point_count = 16
+point_count = 15
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2t4f"]
 texture = ExtResource("6_km5ld")
@@ -43,7 +44,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 320, 180)
 
 [node name="PathTileMapLayer" parent="." instance=ExtResource("4_f2txt")]
-tile_map_data = PackedByteArray("AAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAIAAAADAAQAAAABAAAAAAAEAAQAAAABAAIAAAAFAAQAAAABAAAAAAAGAAQAAAABAAIAAAAHAAQAAAACAAAAAAAHAAUAAAAAAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAGAAcAAAABAAIAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAAAAAAJAAkAAAABAAAAAAAKAAkAAAACAAIAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAAAAAEAAAAKAAUAAAAAAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAAAAAEAAAAKAAEAAAAAAAAAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAANAAEAAAABAAAAAAAOAAEAAAACAAAAAAAOAAIAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAAAAAIAAAAOAAYAAAACAAAAAAAOAAcAAAAAAAIAAAAPAAcAAAABAAAAAAAQAAcAAAABAAIAAAARAAcAAAABAAAAAAASAAcAAAACAAIAAAASAAYAAAAAAAAAAAATAAYAAAABAAIAAAAUAAYAAAABAAAAAAAVAAYAAAACAAIAAAD//wQAAAABAAIAAAD+/wQAAAAAAAIAAAANAAQAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAIAAAADAAQAAAABAAAAAAAEAAQAAAABAAIAAAAFAAQAAAABAAAAAAAGAAQAAAABAAIAAAAHAAQAAAACAAAAAAAHAAUAAAAAAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAGAAcAAAABAAIAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAAAAAAJAAkAAAABAAAAAAAKAAkAAAACAAIAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAAAAAEAAAAKAAUAAAAAAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAAAAAEAAAAKAAEAAAAAAAAAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAANAAEAAAABAAAAAAAOAAEAAAACAAAAAAAOAAIAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAAAAAIAAAAOAAYAAAACAAAAAAAOAAcAAAAAAAIAAAAPAAcAAAABAAAAAAAQAAcAAAABAAIAAAARAAcAAAABAAAAAAASAAcAAAACAAIAAAASAAYAAAACAAEAAAD//wQAAAABAAIAAAD+/wQAAAAAAAIAAAANAAQAAAAAAAAAAAA=")
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(32, -48)
@@ -132,6 +133,9 @@ texture = ExtResource("13_ilwjd")
 
 [node name="Towers" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Castle" parent="." instance=ExtResource("14_5pxul")]
+position = Vector2(296, 80)
 
 [node name="TowerPlacementIndicatorSprite" type="Sprite2D" parent="."]
 z_index = 1

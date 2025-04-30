@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlmmygc8q7j2q"]
+
+[ext_resource type="Script" uid="uid://cixgjstkfw20k" path="res://castle.gd" id="1_vm22h"]
+[ext_resource type="Texture2D" uid="uid://ctitk8l63wn8t" path="res://Simple Tower Defense/Towers/Castle/spr_castle_blue.png" id="1_xtwgx"]
+
+[sub_resource type="Animation" id="Animation_1gkcl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vm22h"]
+resource_name = "flag_wave"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t33uu"]
+_data = {
+&"RESET": SubResource("Animation_1gkcl"),
+&"flag_wave": SubResource("Animation_vm22h")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm22h"]
+size = Vector2(52, 28)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_vm22h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xtwgx")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t33uu")
+}
+autoplay = "flag_wave"
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 21.0
+offset_bottom = -16.0
+theme_override_font_sizes/font_size = 9
+text = "Health: 20"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_vm22h")

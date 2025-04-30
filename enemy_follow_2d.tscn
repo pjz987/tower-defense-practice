@@ -5,6 +5,7 @@
 
 [node name="EnemyFollow2D" type="PathFollow2D"]
 rotates = false
+loop = false
 script = ExtResource("1_uk2wi")
 
 [node name="Enemy" parent="." instance=ExtResource("1_348by")]
