@@ -1,7 +1,7 @@
 extends Area2D
 class_name Enemy
 
-var ENEMY_DEATH_PARTICLES_SCENE: PackedScene = preload("res://enemy_death_particles.tscn")
+var ENEMY_DEATH_PARTICLES_SCENE: PackedScene = preload("res://enemies/enemy_death_particles.tscn")
 
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 

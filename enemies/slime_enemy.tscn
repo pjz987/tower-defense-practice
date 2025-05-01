@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://k84ehsc0malt"]
+
+[ext_resource type="PackedScene" uid="uid://dtjrjpehlt47h" path="res://enemies/enemy.tscn" id="1_ljpcw"]
+[ext_resource type="Texture2D" uid="uid://bq5wixa6kx1v3" path="res://Simple Tower Defense/Enemies/spr_big_slime.png" id="2_wns1r"]
+
+[node name="SlimeEnemy" instance=ExtResource("1_ljpcw")]
+gold_reward = 2
+attack_power = 2
+health = 5
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_wns1r")

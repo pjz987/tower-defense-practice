@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfi1ut6rfxco6" path="res://level.gd" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://dg7so6yfbhdax" path="res://Simple Tower Defense/Environment/Grass/spr_grass_02.png" id="2_0b4ue"]
-[ext_resource type="PackedScene" uid="uid://fcdbjnjocrk" path="res://enemy_follow_2d.tscn" id="4_1ainy"]
+[ext_resource type="PackedScene" uid="uid://fcdbjnjocrk" path="res://enemies/enemy_follow_2d.tscn" id="4_1ainy"]
 [ext_resource type="PackedScene" uid="uid://58m2c72g8y1j" path="res://path_tile_map_layer.tscn" id="4_f2txt"]
 [ext_resource type="Texture2D" uid="uid://cge8c3yh3lcbp" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png" id="6_1ainy"]
 [ext_resource type="Texture2D" uid="uid://ckr58u22psqx4" path="res://Simple Tower Defense/Environment/Tile Set/blank_tileset.png" id="6_km5ld"]

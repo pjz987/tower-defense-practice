@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct4nse5up6sf8"]
+
+[ext_resource type="PackedScene" uid="uid://fcdbjnjocrk" path="res://enemies/enemy_follow_2d.tscn" id="1_gg1k4"]
+[ext_resource type="PackedScene" uid="uid://k84ehsc0malt" path="res://enemies/slime_enemy.tscn" id="2_qoxam"]
+
+[node name="SlimeEnemyFollow2D" instance=ExtResource("1_gg1k4")]
+speed = 15.0
+
+[node name="SlimeEnemy" parent="." index="0" instance=ExtResource("2_qoxam")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25gquag1wm6c"]
+
+[ext_resource type="PackedScene" uid="uid://fcdbjnjocrk" path="res://enemies/enemy_follow_2d.tscn" id="1_jllyi"]
+[ext_resource type="PackedScene" uid="uid://c62do1udobkkj" path="res://enemies/demon_enemy.tscn" id="2_tl0kj"]
+
+[node name="DemonEnemyFollow2D" instance=ExtResource("1_jllyi")]
+
+[node name="DemonEnemy" parent="." index="0" instance=ExtResource("2_tl0kj")]
