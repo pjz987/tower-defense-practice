@@ -11,8 +11,19 @@ var tower_cost: int = 5
 var cell_size: Vector2i = Vector2i(16, 16)
 @export var tower_placement_offset: Vector2i = Vector2i()
 
-var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemy_follow_2d.tscn")
+var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/enemy_follow_2d.tscn")
+var BAT_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/bat_enemy_follow_2d.tscn")
+var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
+var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_follow_2d.tscn")
+var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
 var TOWER_SCENE: PackedScene = preload("res://tower.tscn")
+
+var enemy_follow_scenes: Array[PackedScene] = [
+	BAT_ENEMY_FOLLOW_SCENE,
+	SLIME_ENEMY_FOLLOW_SCENE,
+	DEMON_ENEMY_FOLLOW_SCENE,
+	GHOST_ENEMY_FOLLOW_SCENE,
+]
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
@@ -34,7 +45,7 @@ func _input(event: InputEvent) -> void:
 					Economy.gold -= tower_cost
 
 func _on_enemy_spawner_timer_timeout() -> void:
-	var enemy_follow = ENEMY_FOLLOW_SCENE.instantiate()
+	var enemy_follow = enemy_follow_scenes.pick_random().instantiate()
 	path_2d.add_child(enemy_follow)
 
 func grid_cell_selection() -> void:

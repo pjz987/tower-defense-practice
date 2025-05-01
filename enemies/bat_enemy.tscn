@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt21ffe5x7g1o"]
+
+[ext_resource type="PackedScene" uid="uid://dtjrjpehlt47h" path="res://enemies/enemy.tscn" id="1_e7gs6"]
+[ext_resource type="Texture2D" uid="uid://blhfoep1umuhy" path="res://Simple Tower Defense/Enemies/spr_bat.png" id="2_5gx0a"]
+
+[node name="BatEnemy" instance=ExtResource("1_e7gs6")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_5gx0a")
