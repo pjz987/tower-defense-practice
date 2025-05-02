@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq6qlrl1gwae2"]
+
+[ext_resource type="Script" uid="uid://c0h04qq7fqtbj" path="res://tower_selection_ui.gd" id="1_vab6o"]
+
+[node name="TowerSelectionUI" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 10.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("1_vab6o")
+
+[node name="ArcherTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Archer: 5g"
+
+[node name="CannonTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Cannon: 10g
+"
+
+[node name="CrossbowTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Crossbow: 15g
+"
+
+[node name="IceTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Ice: 15g
+"
+
+[node name="LightningTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Lightning: 15g
+"
+
+[node name="PoisonTowerButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Poison: 15g
+"

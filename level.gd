@@ -13,20 +13,21 @@ var cell_size: Vector2i = Vector2i(16, 16)
 
 var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/enemy_follow_2d.tscn")
 var BAT_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/bat_enemy_follow_2d.tscn")
-var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
 var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_follow_2d.tscn")
 var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
+var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
 var TOWER_SCENE: PackedScene = preload("res://tower.tscn")
 
 var enemy_follow_scenes: Array[PackedScene] = [
 	BAT_ENEMY_FOLLOW_SCENE,
-	SLIME_ENEMY_FOLLOW_SCENE,
 	DEMON_ENEMY_FOLLOW_SCENE,
 	GHOST_ENEMY_FOLLOW_SCENE,
+	SLIME_ENEMY_FOLLOW_SCENE,
 ]
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
+	Signals.selected_tower_changed.connect(set_tower_placement_indicator_sprite_texture)
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
@@ -51,3 +52,30 @@ func _on_enemy_spawner_timer_timeout() -> void:
 func grid_cell_selection() -> void:
 	var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
 	tower_placement_indicator_sprite.global_position = selected_cell_coords * cell_size
+
+func set_tower_placement_indicator_sprite_texture() -> void:
+	match Economy.selected_tower:
+		Economy.Tower.NONE:
+			tower_placement_indicator_sprite.texture = null
+		Economy.Tower.ARCHER:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png")
+		Economy.Tower.CANNON:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_cannon.png")
+		Economy.Tower.CROSSBOW:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png")
+		Economy.Tower.ICE:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png")
+		Economy.Tower.LIGHTNING:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_lightning_tower.png")
+		Economy.Tower.POISON:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png")
+		
+#enum Tower { # selectable towers from the shop ui
+	#NONE,
+	#ARCHER,
+	#CANNON,
+	#CROSSBOW,
+	#ICE,
+	#LIGHTNING,
+	#POISON,
+#}

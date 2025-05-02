@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dg7so6yfbhdax" path="res://Simple Tower Defense/Environment/Grass/spr_grass_02.png" id="2_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://fcdbjnjocrk" path="res://enemies/enemy_follow_2d.tscn" id="4_1ainy"]
 [ext_resource type="PackedScene" uid="uid://58m2c72g8y1j" path="res://path_tile_map_layer.tscn" id="4_f2txt"]
-[ext_resource type="Texture2D" uid="uid://cge8c3yh3lcbp" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png" id="6_1ainy"]
 [ext_resource type="Texture2D" uid="uid://ckr58u22psqx4" path="res://Simple Tower Defense/Environment/Tile Set/blank_tileset.png" id="6_km5ld"]
 [ext_resource type="Texture2D" uid="uid://6ynp20u8kgek" path="res://Simple Tower Defense/Environment/Decoration/spr_tree_01_normal.png" id="6_v5j5c"]
 [ext_resource type="Texture2D" uid="uid://b33wh3wpodvrv" path="res://Simple Tower Defense/Environment/Decoration/spr_tree_02_spruce.png" id="7_5pxul"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b68loiovkvwba" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_02.png" id="12_v7sqt"]
 [ext_resource type="Texture2D" uid="uid://cesfs6brfehxa" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_01.png" id="13_ilwjd"]
 [ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle.tscn" id="14_5pxul"]
+[ext_resource type="PackedScene" uid="uid://bq6qlrl1gwae2" path="res://enemies/tower_selection_ui.tscn" id="17_fedht"]
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {
@@ -140,10 +140,13 @@ position = Vector2(296, 80)
 [node name="TowerPlacementIndicatorSprite" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(-64, -8)
-texture = ExtResource("6_1ainy")
 centered = false
 offset = Vector2(0, -7)
 
 [node name="UI" parent="." instance=ExtResource("7_n6hdu")]
+
+[node name="TowerSelectionUI" parent="." instance=ExtResource("17_fedht")]
+offset_right = 219.0
+offset_bottom = 48.0
 
 [connection signal="timeout" from="EnemySpawnerTimer" to="." method="_on_enemy_spawner_timer_timeout"]
