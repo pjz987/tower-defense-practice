@@ -70,12 +70,3 @@ func set_tower_placement_indicator_sprite_texture() -> void:
 		Economy.Tower.POISON:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png")
 		
-#enum Tower { # selectable towers from the shop ui
-	#NONE,
-	#ARCHER,
-	#CANNON,
-	#CROSSBOW,
-	#ICE,
-	#LIGHTNING,
-	#POISON,
-#}
