@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlmmygc8q7j2q"]
+[gd_scene load_steps=9 format=3 uid="uid://dlmmygc8q7j2q"]
 
 [ext_resource type="Script" uid="uid://cixgjstkfw20k" path="res://castle.gd" id="1_vm22h"]
 [ext_resource type="Texture2D" uid="uid://ctitk8l63wn8t" path="res://Simple Tower Defense/Towers/Castle/spr_castle_blue.png" id="1_xtwgx"]
+[ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_1gkcl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t33uu"]
+shader = ExtResource("2_1gkcl")
+shader_parameter/flash_color = Color(0.768627, 0.141176, 0.188235, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Animation" id="Animation_1gkcl"]
 length = 0.001
@@ -49,6 +55,7 @@ size = Vector2(52, 28)
 script = ExtResource("1_vm22h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t33uu")
 texture = ExtResource("1_xtwgx")
 hframes = 4
 
@@ -69,3 +76,6 @@ text = "Health: 20"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_vm22h")
+
+[node name="DamageEffectTimer" type="Timer" parent="."]
+one_shot = true
