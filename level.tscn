@@ -146,4 +146,12 @@ offset = Vector2(0, -7)
 
 [node name="UI" parent="." instance=ExtResource("7_n6hdu")]
 
+[node name="WaveLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -1.0
+offset_right = 132.0
+offset_bottom = 22.0
+text = "Wave 1"
+
 [connection signal="timeout" from="EnemySpawnerTimer" to="." method="_on_enemy_spawner_timer_timeout"]

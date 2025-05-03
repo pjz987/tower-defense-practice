@@ -6,10 +6,14 @@ extends Node2D
 @onready var path_tile_map_layer: TileMapLayer = $PathTileMapLayer
 @onready var tower_placement_indicator_sprite: Sprite2D = $TowerPlacementIndicatorSprite
 @onready var towers: Node2D = $Towers
+@onready var wave_label: Label = $UI/WaveLabel
 
+@export var wave_count: int = 0
+@export var enemy_count: int = 0
 var tower_cost: int = 5
 var cell_size: Vector2i = Vector2i(16, 16)
 @export var tower_placement_offset: Vector2i = Vector2i()
+
 
 var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/enemy_follow_2d.tscn")
 var BAT_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/bat_enemy_follow_2d.tscn")
@@ -18,6 +22,20 @@ var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_f
 var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
 var TOWER_SCENE: PackedScene = preload("res://tower.tscn")
 
+var enemy_scenes_dict: Dictionary[String, PackedScene] = {
+	"bat": BAT_ENEMY_FOLLOW_SCENE,
+	"slime": SLIME_ENEMY_FOLLOW_SCENE,
+	"demon": DEMON_ENEMY_FOLLOW_SCENE,
+	"ghost": GHOST_ENEMY_FOLLOW_SCENE,
+}
+
+@export var waves: Array[Array] = [
+	["bat", "bat", "bat", "bat", "bat", "bat"],
+	["slime", "slime", "slime"],
+	["demon", "demon", "demon"],
+	["ghost", "ghost", "ghost"],
+]
+
 var enemy_follow_scenes: Array[PackedScene] = [
 	BAT_ENEMY_FOLLOW_SCENE,
 	SLIME_ENEMY_FOLLOW_SCENE,
@@ -25,8 +43,11 @@ var enemy_follow_scenes: Array[PackedScene] = [
 	GHOST_ENEMY_FOLLOW_SCENE,
 ]
 
+
+
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
+	enemy_spawner()
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
@@ -44,10 +65,21 @@ func _input(event: InputEvent) -> void:
 					towers.add_child(tower)
 					Economy.gold -= tower_cost
 
-func _on_enemy_spawner_timer_timeout() -> void:
-	var enemy_follow = enemy_follow_scenes.pick_random().instantiate()
-	path_2d.add_child(enemy_follow)
+#func _on_enemy_spawner_timer_timeout() -> void:
+	#var enemy_follow = enemy_follow_scenes.pick_random().instantiate()
+	#path_2d.add_child(enemy_follow)
 
 func grid_cell_selection() -> void:
 	var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
 	tower_placement_indicator_sprite.global_position = selected_cell_coords * cell_size
+
+func enemy_spawner() -> void:
+	for wave in waves:
+		wave_count += 1
+		wave_label.text = "Wave " + str(wave_count)
+		for enemy_scene_key in wave:
+			var enemy_scene =  enemy_scenes_dict[enemy_scene_key].instantiate()
+			path_2d.add_child(enemy_scene)
+			await get_tree().create_timer(2.0).timeout
+		# await wave.finished # TODO something like this
+		await get_tree().create_timer(10.0).timeout

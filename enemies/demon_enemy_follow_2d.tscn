@@ -4,5 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c62do1udobkkj" path="res://enemies/demon_enemy.tscn" id="2_tl0kj"]
 
 [node name="DemonEnemyFollow2D" instance=ExtResource("1_jllyi")]
+speed = 15.0
 
 [node name="DemonEnemy" parent="." index="0" instance=ExtResource("2_tl0kj")]

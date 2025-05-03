@@ -53,7 +53,7 @@ _data = {
 &"fly": SubResource("Animation_7k104")
 }
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_fw1ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
