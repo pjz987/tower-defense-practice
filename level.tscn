@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckr58u22psqx4" path="res://Simple Tower Defense/Environment/Tile Set/blank_tileset.png" id="6_km5ld"]
 [ext_resource type="Texture2D" uid="uid://6ynp20u8kgek" path="res://Simple Tower Defense/Environment/Decoration/spr_tree_01_normal.png" id="6_v5j5c"]
 [ext_resource type="Texture2D" uid="uid://b33wh3wpodvrv" path="res://Simple Tower Defense/Environment/Decoration/spr_tree_02_spruce.png" id="7_5pxul"]
-[ext_resource type="PackedScene" uid="uid://gtb62b3y5fyo" path="res://ui.tscn" id="7_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://gtb62b3y5fyo" path="res://ui/ui.tscn" id="7_n6hdu"]
 [ext_resource type="Texture2D" uid="uid://u5mdguwfou1q" path="res://Simple Tower Defense/Environment/Decoration/spr_tree_02_normal.png" id="8_fedht"]
 [ext_resource type="Texture2D" uid="uid://ddtptk5as5awm" path="res://Simple Tower Defense/Environment/Decoration/spr_rock_03.png" id="9_4c15r"]
 [ext_resource type="Texture2D" uid="uid://bp0byj75ssps3" path="res://Simple Tower Defense/Environment/Decoration/spr_rock_02.png" id="10_ait7k"]
@@ -19,7 +19,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -96, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 72, 0, 0, 0, 0, 200, 72, 0, 0, 0, 0, 200, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 168, 0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 264, 152)
+"points": PackedVector2Array(0, 0, 0, 0, -40, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 72, 0, 0, 0, 0, 200, 72, 0, 0, 0, 0, 200, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 168, 0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 264, 152)
 }
 point_count = 15
 
@@ -51,7 +51,7 @@ position = Vector2(32, -48)
 curve = SubResource("Curve2D_oi3di")
 
 [node name="EnemyFollow2D" parent="Path2D" instance=ExtResource("4_1ainy")]
-position = Vector2(-96, 120)
+position = Vector2(-40, 120)
 
 [node name="EnemySpawnerTimer" type="Timer" parent="."]
 wait_time = 1.5

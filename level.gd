@@ -10,9 +10,10 @@ extends Node2D
 
 @export var wave_count: int = 0
 @export var enemy_count: int = 0
+@export var tower_placement_offset: Vector2i = Vector2i()
 var tower_cost: int = 5
 var cell_size: Vector2i = Vector2i(16, 16)
-@export var tower_placement_offset: Vector2i = Vector2i()
+var wave_done_spawning: bool = false
 
 
 var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/enemy_follow_2d.tscn")
@@ -47,7 +48,8 @@ var enemy_follow_scenes: Array[PackedScene] = [
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
-	enemy_spawner()
+	wave_spawner()
+	EnemyManager.enemy_died.connect(check_is_wave_over)
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
@@ -65,21 +67,31 @@ func _input(event: InputEvent) -> void:
 					towers.add_child(tower)
 					Economy.gold -= tower_cost
 
-#func _on_enemy_spawner_timer_timeout() -> void:
-	#var enemy_follow = enemy_follow_scenes.pick_random().instantiate()
-	#path_2d.add_child(enemy_follow)
 
 func grid_cell_selection() -> void:
 	var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
 	tower_placement_indicator_sprite.global_position = selected_cell_coords * cell_size
 
-func enemy_spawner() -> void:
-	for wave in waves:
+
+func wave_spawner() -> void:
+	wave_done_spawning = false
+	wave_label.text = "Wave " + str(wave_count + 1)
+	if wave_count >= len(waves):
+		wave_label.text = "Congralutations!"
+		return
+	var wave = waves[wave_count]
+	for enemy_scene_key in wave:
+		await get_tree().create_timer(2.0).timeout
+		var enemy_scene =  enemy_scenes_dict[enemy_scene_key].instantiate()
+		path_2d.add_child(enemy_scene)
+	wave_done_spawning = true
+
+func check_is_wave_over() -> void:
+	var wave_is_over = wave_done_spawning and await EnemyManager.are_enemies_empty()
+	if wave_is_over:
 		wave_count += 1
-		wave_label.text = "Wave " + str(wave_count)
-		for enemy_scene_key in wave:
-			var enemy_scene =  enemy_scenes_dict[enemy_scene_key].instantiate()
-			path_2d.add_child(enemy_scene)
-			await get_tree().create_timer(2.0).timeout
-		# await wave.finished # TODO something like this
-		await get_tree().create_timer(10.0).timeout
+		if wave_count < len(waves):
+			wave_label.text = "Wave " + str(wave_count + 1) + " Incoming"
+			await get_tree().create_timer(3.0).timeout
+		wave_spawner()
+	

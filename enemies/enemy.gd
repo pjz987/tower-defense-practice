@@ -35,6 +35,7 @@ func die() -> void:
 	death_particles.global_position = global_position
 	get_tree().current_scene.add_child(death_particles)
 	death_particles.emitting = true
+	EnemyManager.enemy_died.emit.call_deferred()
 
 
 
