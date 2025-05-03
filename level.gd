@@ -50,6 +50,7 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
 	wave_spawner()
 	EnemyManager.enemy_died.connect(check_is_wave_over)
+	GameManager.castle_destroyed.connect(func(): wave_label.text = "Game Over")
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
