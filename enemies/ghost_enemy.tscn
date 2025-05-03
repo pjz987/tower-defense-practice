@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://qfh8dso6bp6v"]
+[gd_scene load_steps=8 format=3 uid="uid://qfh8dso6bp6v"]
 
 [ext_resource type="PackedScene" uid="uid://dtjrjpehlt47h" path="res://enemies/enemy.tscn" id="1_reqg6"]
 [ext_resource type="Texture2D" uid="uid://cuhwp3rn13065" path="res://Simple Tower Defense/Enemies/spr_ghost.png" id="2_60j7o"]
+[ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_m1svn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlghq"]
+resource_local_to_scene = true
+shader = ExtResource("2_m1svn")
+shader_parameter/flash_color = Color(0.768627, 0.141176, 0.188235, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Animation" id="Animation_60j7o"]
 length = 0.001
@@ -48,6 +55,7 @@ attack_power = 2
 health = 4
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_dlghq")
 texture = ExtResource("2_60j7o")
 hframes = 8
 

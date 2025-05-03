@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7st4m1k4axgh"]
-
-[ext_resource type="Script" path="res://tower_selection_ui.gd" id="1_vab6o"]
+[gd_scene format=3 uid="uid://b7st4m1k4axgh"]
 
 [node name="TowerSelectionUI" type="GridContainer"]
 anchors_preset = 15
@@ -11,7 +9,6 @@ offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
-script = ExtResource("1_vab6o")
 
 [node name="ArcherTowerButton" type="Button" parent="."]
 layout_mode = 2
