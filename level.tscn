@@ -19,9 +19,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -40, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 72, 0, 0, 0, 0, 200, 72, 0, 0, 0, 0, 200, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 168, 0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 264, 152)
+"points": PackedVector2Array(0, 0, 0, 0, -40, 120, 0, 0, 0, 0, 88, 120, 0, 0, 0, 0, 88, 168, 0, 0, 0, 0, 56, 168, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 136, 120, 0, 0, 0, 0, 184, 120, 0, 0, 0, 0, 184, 152, 0, 0, 0, 0, 200, 152, 0, 0, 0, 0, 200, 216, 0, 0, 0, 0, 248, 216, 0, 0, 0, 0, 248, 152)
 }
-point_count = 15
+point_count = 13
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2t4f"]
 texture = ExtResource("6_km5ld")
@@ -44,7 +44,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 320, 180)
 
 [node name="PathTileMapLayer" parent="." instance=ExtResource("4_f2txt")]
-tile_map_data = PackedByteArray("AAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAIAAAADAAQAAAABAAAAAAAEAAQAAAABAAIAAAAFAAQAAAABAAAAAAAGAAQAAAABAAIAAAAHAAQAAAACAAAAAAAHAAUAAAAAAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAGAAcAAAABAAIAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAAAAAAJAAkAAAABAAAAAAAKAAkAAAACAAIAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAAAAAEAAAAKAAUAAAAAAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAAAAAEAAAAKAAEAAAAAAAAAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAANAAEAAAABAAAAAAAOAAEAAAACAAAAAAAOAAIAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAACAAIAAAANAAUAAAACAAEAAAANAAYAAAAAAAIAAAAOAAYAAAACAAAAAAAOAAcAAAAAAAIAAAAPAAcAAAABAAAAAAAQAAcAAAABAAIAAAARAAcAAAACAAIAAAD//wQAAAABAAIAAAD+/wQAAAAAAAIAAAANAAQAAAAAAAAAAAARAAYAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAIAAAADAAQAAAABAAAAAAAEAAQAAAABAAIAAAAFAAQAAAABAAAAAAAGAAQAAAABAAIAAAAHAAQAAAACAAAAAAAHAAUAAAAAAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAGAAcAAAABAAIAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAAAAAAJAAkAAAABAAAAAAAKAAkAAAACAAIAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAAAAAEAAAAKAAUAAAAAAAEAAAAKAAQAAAAAAAAAAAANAAUAAAACAAEAAAANAAYAAAAAAAIAAAAOAAYAAAACAAAAAAAOAAcAAAACAAEAAAARAAcAAAAAAAEAAAD//wQAAAABAAIAAAD+/wQAAAAAAAIAAAANAAQAAAACAAAAAAALAAQAAAABAAIAAAAMAAQAAAABAAIAAAAOAAgAAAAAAAEAAAAOAAkAAAAAAAEAAAAOAAoAAAAAAAIAAAAPAAoAAAABAAAAAAAQAAoAAAABAAAAAAARAAoAAAACAAIAAAARAAkAAAACAAEAAAARAAgAAAAAAAEAAAARAAYAAAAAAAAAAAA=")
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(32, -48)
@@ -58,7 +58,7 @@ wait_time = 1.5
 autostart = true
 
 [node name="GridPlacementTileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAIAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAQAAYAAQAAAAAAAAAQAAUAAQAAAAAAAAAQAAQAAQAAAAAAAAAQAAMAAQAAAAAAAAAQAAIAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAARAAQAAQAAAAAAAAARAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAATAAQAAQAAAAAAAAASAAQAAQAAAAAAAAASAAMAAQAAAAAAAAATAAMAAQAAAAAAAAATAAIAAQAAAAAAAAASAAIAAQAAAAAAAAATAAEAAQAAAAAAAAATAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAcAAQAAAAAAAAATAAgAAQAAAAAAAAATAAkAAQAAAAAAAAATAAoAAQAAAAAAAAASAAoAAQAAAAAAAAASAAkAAQAAAAAAAAASAAgAAQAAAAAAAAARAAgAAQAAAAAAAAARAAkAAQAAAAAAAAARAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAAQAAkAAQAAAAAAAAAQAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAkAAQAAAAAAAAAOAAgAAQAAAAAAAAANAAgAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAANAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAgAAQAAAAAAAAAMAAoAAQAAAAAAAAALAAoAAQAAAAAAAAALAAkAAQAAAAAAAAALAAgAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAMAAQAAAAAAAAALAAMAAQAAAAAAAAALAAIAAQAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAQAAAAAAAAANAAMAAQAAAAAAAAAKAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAADAAoAAQAAAAAAAAABAAoAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAgAAQAAAAAAAAADAAgAAQAAAAAAAAACAAgAAQAAAAAAAAABAAgAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAgAAQAAAAAAAAAOAAUAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAJAAMAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAQAAYAAQAAAAAAAAAQAAUAAQAAAAAAAAAQAAQAAQAAAAAAAAAQAAMAAQAAAAAAAAARAAQAAQAAAAAAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAATAAQAAQAAAAAAAAASAAQAAQAAAAAAAAASAAMAAQAAAAAAAAATAAMAAQAAAAAAAAATAAcAAQAAAAAAAAATAAgAAQAAAAAAAAATAAkAAQAAAAAAAAATAAoAAQAAAAAAAAASAAoAAQAAAAAAAAASAAkAAQAAAAAAAAASAAgAAQAAAAAAAAAQAAkAAQAAAAAAAAAQAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAANAAgAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAANAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAgAAQAAAAAAAAAMAAoAAQAAAAAAAAALAAoAAQAAAAAAAAALAAkAAQAAAAAAAAALAAgAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAKAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAADAAoAAQAAAAAAAAABAAoAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAgAAQAAAAAAAAADAAgAAQAAAAAAAAACAAgAAQAAAAAAAAABAAgAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAgAAQAAAAAAAAAOAAUAAQAAAAAAAAAMAP//AQAAAAAAAAANAP//AQAAAAAAAAAOAAMAAQAAAAAAAAAOAAQAAQAAAAAAAAATAAYAAQAAAAAAAAAPAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAAKAAMAAQAAAAAAAAALAAMAAQAAAAAAAAAMAAMAAQAAAAAAAAANAAMAAQAAAAAAAAARAAMAAQAAAAAAAAASAAYAAQAAAAAAAAASAAcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_f2txt")
 
 [node name="Decorations" type="Node2D" parent="."]
@@ -79,6 +79,22 @@ texture = ExtResource("6_v5j5c")
 position = Vector2(264, 24)
 texture = ExtResource("6_v5j5c")
 
+[node name="SprTree01Normal5" type="Sprite2D" parent="Decorations"]
+position = Vector2(232, 24)
+texture = ExtResource("6_v5j5c")
+
+[node name="SprTree01Normal6" type="Sprite2D" parent="Decorations"]
+position = Vector2(232, 40)
+texture = ExtResource("6_v5j5c")
+
+[node name="SprTree01Normal7" type="Sprite2D" parent="Decorations"]
+position = Vector2(200, 40)
+texture = ExtResource("6_v5j5c")
+
+[node name="SprTree01Normal8" type="Sprite2D" parent="Decorations"]
+position = Vector2(184, 40)
+texture = ExtResource("6_v5j5c")
+
 [node name="SprTree02Spruce" type="Sprite2D" parent="Decorations"]
 position = Vector2(24, 24)
 texture = ExtResource("7_5pxul")
@@ -87,8 +103,216 @@ texture = ExtResource("7_5pxul")
 position = Vector2(280, 40)
 texture = ExtResource("7_5pxul")
 
+[node name="SprTree02Spruce3" type="Sprite2D" parent="Decorations"]
+position = Vector2(264, 40)
+texture = ExtResource("7_5pxul")
+
+[node name="SprTree02Spruce4" type="Sprite2D" parent="Decorations"]
+position = Vector2(248, 40)
+texture = ExtResource("7_5pxul")
+
 [node name="SprTree02Normal" type="Sprite2D" parent="Decorations"]
 position = Vector2(56, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal42" type="Sprite2D" parent="Decorations"]
+position = Vector2(56, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal43" type="Sprite2D" parent="Decorations"]
+position = Vector2(56, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal44" type="Sprite2D" parent="Decorations"]
+position = Vector2(56, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal45" type="Sprite2D" parent="Decorations"]
+position = Vector2(40, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal46" type="Sprite2D" parent="Decorations"]
+position = Vector2(24, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal47" type="Sprite2D" parent="Decorations"]
+position = Vector2(8, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal48" type="Sprite2D" parent="Decorations"]
+position = Vector2(8, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal49" type="Sprite2D" parent="Decorations"]
+position = Vector2(40, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal50" type="Sprite2D" parent="Decorations"]
+position = Vector2(40, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal51" type="Sprite2D" parent="Decorations"]
+position = Vector2(24, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal52" type="Sprite2D" parent="Decorations"]
+position = Vector2(8, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal53" type="Sprite2D" parent="Decorations"]
+position = Vector2(8, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal4" type="Sprite2D" parent="Decorations"]
+position = Vector2(216, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal5" type="Sprite2D" parent="Decorations"]
+position = Vector2(216, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal6" type="Sprite2D" parent="Decorations"]
+position = Vector2(248, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal7" type="Sprite2D" parent="Decorations"]
+position = Vector2(280, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal8" type="Sprite2D" parent="Decorations"]
+position = Vector2(296, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal9" type="Sprite2D" parent="Decorations"]
+position = Vector2(312, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal10" type="Sprite2D" parent="Decorations"]
+position = Vector2(312, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal11" type="Sprite2D" parent="Decorations"]
+position = Vector2(312, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal12" type="Sprite2D" parent="Decorations"]
+position = Vector2(296, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal13" type="Sprite2D" parent="Decorations"]
+position = Vector2(280, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal14" type="Sprite2D" parent="Decorations"]
+position = Vector2(264, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal15" type="Sprite2D" parent="Decorations"]
+position = Vector2(248, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal16" type="Sprite2D" parent="Decorations"]
+position = Vector2(232, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal17" type="Sprite2D" parent="Decorations"]
+position = Vector2(216, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal18" type="Sprite2D" parent="Decorations"]
+position = Vector2(200, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal19" type="Sprite2D" parent="Decorations"]
+position = Vector2(200, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal20" type="Sprite2D" parent="Decorations"]
+position = Vector2(184, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal21" type="Sprite2D" parent="Decorations"]
+position = Vector2(184, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal22" type="Sprite2D" parent="Decorations"]
+position = Vector2(168, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal23" type="Sprite2D" parent="Decorations"]
+position = Vector2(168, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal24" type="Sprite2D" parent="Decorations"]
+position = Vector2(168, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal25" type="Sprite2D" parent="Decorations"]
+position = Vector2(152, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal26" type="Sprite2D" parent="Decorations"]
+position = Vector2(152, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal27" type="Sprite2D" parent="Decorations"]
+position = Vector2(152, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal28" type="Sprite2D" parent="Decorations"]
+position = Vector2(136, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal29" type="Sprite2D" parent="Decorations"]
+position = Vector2(136, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal30" type="Sprite2D" parent="Decorations"]
+position = Vector2(120, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal31" type="Sprite2D" parent="Decorations"]
+position = Vector2(120, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal32" type="Sprite2D" parent="Decorations"]
+position = Vector2(104, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal36" type="Sprite2D" parent="Decorations"]
+position = Vector2(88, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal37" type="Sprite2D" parent="Decorations"]
+position = Vector2(72, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal38" type="Sprite2D" parent="Decorations"]
+position = Vector2(72, 40)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal39" type="Sprite2D" parent="Decorations"]
+position = Vector2(72, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal40" type="Sprite2D" parent="Decorations"]
+position = Vector2(72, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal41" type="Sprite2D" parent="Decorations"]
+position = Vector2(88, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal33" type="Sprite2D" parent="Decorations"]
+position = Vector2(104, 24)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal34" type="Sprite2D" parent="Decorations"]
+position = Vector2(104, 8)
+texture = ExtResource("8_fedht")
+
+[node name="SprTree02Normal35" type="Sprite2D" parent="Decorations"]
+position = Vector2(104, 8)
 texture = ExtResource("8_fedht")
 
 [node name="SprTree02Normal3" type="Sprite2D" parent="Decorations"]
@@ -131,10 +355,10 @@ texture = ExtResource("13_ilwjd")
 position = Vector2(312, 144)
 texture = ExtResource("13_ilwjd")
 
-[node name="Towers" type="Node2D" parent="."]
+[node name="TowersAndCastle" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Castle" parent="." instance=ExtResource("14_5pxul")]
+[node name="Castle" parent="TowersAndCastle" instance=ExtResource("14_5pxul")]
 position = Vector2(280, 80)
 
 [node name="TowerPlacementIndicatorSprite" type="Sprite2D" parent="."]
@@ -147,10 +371,9 @@ offset = Vector2(0, -7)
 
 [node name="WaveLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = -1.0
-offset_right = 132.0
-offset_bottom = 22.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
 text = "Wave 1"
 
 [node name="TowerSelectionUI" parent="UI" instance=ExtResource("17_fedht")]

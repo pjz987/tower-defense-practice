@@ -5,7 +5,7 @@ extends Node2D
 @onready var grid_placement_tile_map_layer: TileMapLayer = $GridPlacementTileMapLayer
 @onready var path_tile_map_layer: TileMapLayer = $PathTileMapLayer
 @onready var tower_placement_indicator_sprite: Sprite2D = $TowerPlacementIndicatorSprite
-@onready var towers: Node2D = $Towers
+@onready var towers: Node2D = $TowersAndCastle
 @onready var wave_label: Label = $UI/WaveLabel
 
 @export var wave_count: int = 0
