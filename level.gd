@@ -21,7 +21,7 @@ var BAT_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/bat_enemy_follo
 var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_follow_2d.tscn")
 var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
 var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
-var TOWER_SCENE: PackedScene = preload("res://tower.tscn")
+var TOWER_SCENE: PackedScene = preload("res://towers/tower.tscn")
 
 var enemy_scenes_dict: Dictionary[String, PackedScene] = {
 	"bat": BAT_ENEMY_FOLLOW_SCENE,

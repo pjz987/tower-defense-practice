@@ -4,7 +4,7 @@ class_name Castle extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var damage_effect_timer: Timer = $DamageEffectTimer
 
-var CASTLE_DESTRUCTION_PARTICLES_SCENE: PackedScene = preload("res://castle_destruction_particles.tscn")
+var CASTLE_DESTRUCTION_PARTICLES_SCENE: PackedScene = preload("res://castle/castle_destruction_particles.tscn")
 
 @export var health: int = 20:
 	set(value):

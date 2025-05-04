@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fbhxvbro6wee"]
 
 [ext_resource type="Texture2D" uid="uid://cge8c3yh3lcbp" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png" id="1_k1sas"]
-[ext_resource type="Script" uid="uid://buoiw8mr35mce" path="res://tower.gd" id="1_vedim"]
+[ext_resource type="Script" uid="uid://buoiw8mr35mce" path="res://towers/tower.gd" id="1_vedim"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1sas"]
 radius = 27.0
