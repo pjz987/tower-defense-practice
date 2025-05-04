@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://0ogptj6l3t4q" path="res://Simple Tower Defense/Environment/Decoration/spr_rock_01.png" id="11_42xju"]
 [ext_resource type="Texture2D" uid="uid://b68loiovkvwba" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_02.png" id="12_v7sqt"]
 [ext_resource type="Texture2D" uid="uid://cesfs6brfehxa" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_01.png" id="13_ilwjd"]
-[ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle.tscn" id="14_5pxul"]
-[ext_resource type="PackedScene" uid="uid://b7st4m1k4axgh" path="res://enemies/tower_selection_ui.tscn" id="17_fedht"]
+[ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle/castle.tscn" id="14_5pxul"]
+[ext_resource type="PackedScene" uid="uid://bq6qlrl1gwae2" path="res://ui/tower_selection_ui.tscn" id="17_fedht"]
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {

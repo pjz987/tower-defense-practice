@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlmmygc8q7j2q"]
 
-[ext_resource type="Script" uid="uid://cixgjstkfw20k" path="res://castle.gd" id="1_vm22h"]
+[ext_resource type="Script" uid="uid://cixgjstkfw20k" path="res://castle/castle.gd" id="1_vm22h"]
 [ext_resource type="Texture2D" uid="uid://ctitk8l63wn8t" path="res://Simple Tower Defense/Towers/Castle/spr_castle_blue.png" id="1_xtwgx"]
 [ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_1gkcl"]
 

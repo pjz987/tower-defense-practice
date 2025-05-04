@@ -4,7 +4,7 @@ class_name Tower
 @onready var projectile_spawn_point: Node2D = $ProjectileSpawnPoint
 @onready var projectile_timer: Timer = $ProjectileTimer
 
-var PROJECTILE_SCENE: PackedScene = preload("res://projectile.tscn")
+var PROJECTILE_SCENE: PackedScene = preload("res://towers/projectile.tscn")
 
 var enemies: Array[Enemy] = []
 
