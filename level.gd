@@ -5,7 +5,7 @@ extends Node2D
 @onready var grid_placement_tile_map_layer: TileMapLayer = $GridPlacementTileMapLayer
 @onready var path_tile_map_layer: TileMapLayer = $PathTileMapLayer
 @onready var tower_placement_indicator_sprite: Sprite2D = $TowerPlacementIndicatorSprite
-@onready var towers: Node2D = $Towers
+@onready var towers: Node2D = $TowersAndCastle
 @onready var wave_label: Label = $UI/WaveLabel
 
 @export var wave_count: int = 0
@@ -18,9 +18,9 @@ var wave_done_spawning: bool = false
 
 var ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/enemy_follow_2d.tscn")
 var BAT_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/bat_enemy_follow_2d.tscn")
-var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
 var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_follow_2d.tscn")
 var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
+var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
 var TOWER_SCENE: PackedScene = preload("res://tower.tscn")
 
 var enemy_scenes_dict: Dictionary[String, PackedScene] = {
@@ -39,9 +39,9 @@ var enemy_scenes_dict: Dictionary[String, PackedScene] = {
 
 var enemy_follow_scenes: Array[PackedScene] = [
 	BAT_ENEMY_FOLLOW_SCENE,
-	SLIME_ENEMY_FOLLOW_SCENE,
 	DEMON_ENEMY_FOLLOW_SCENE,
 	GHOST_ENEMY_FOLLOW_SCENE,
+	SLIME_ENEMY_FOLLOW_SCENE,
 ]
 
 
@@ -51,6 +51,7 @@ func _ready() -> void:
 	wave_spawner()
 	EnemyManager.enemy_died.connect(check_is_wave_over)
 	GameManager.castle_destroyed.connect(func(): wave_label.text = "Game Over")
+	Signals.selected_tower_changed.connect(set_tower_placement_indicator_sprite_texture)
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
@@ -96,3 +97,21 @@ func check_is_wave_over() -> void:
 			await get_tree().create_timer(3.0).timeout
 		wave_spawner()
 	
+
+func set_tower_placement_indicator_sprite_texture() -> void:
+	match Economy.selected_tower:
+		Economy.Tower.NONE:
+			tower_placement_indicator_sprite.texture = null
+		Economy.Tower.ARCHER:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png")
+		Economy.Tower.CANNON:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_cannon.png")
+		Economy.Tower.CROSSBOW:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png")
+		Economy.Tower.ICE:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png")
+		Economy.Tower.LIGHTNING:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_lightning_tower.png")
+		Economy.Tower.POISON:
+			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png")
+		
