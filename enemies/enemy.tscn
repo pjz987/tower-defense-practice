@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtjrjpehlt47h"]
+[gd_scene load_steps=10 format=3 uid="uid://dtjrjpehlt47h"]
 
 [ext_resource type="Script" uid="uid://dq0w5cx58ippp" path="res://enemies/enemy.gd" id="1_fw1ev"]
 [ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_orwns"]
@@ -53,6 +53,14 @@ _data = {
 &"fly": SubResource("Animation_7k104")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_orwns"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.0
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.2, 0.596078, 0.294118, 1)
+
 [node name="Enemy" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_fw1ev")
 
@@ -76,6 +84,20 @@ one_shot = true
 [node name="DamageEffectTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="IcedTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PoisonedTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="PoisonDamageTimer" type="Timer" parent="."]
+
+[node name="PoisonParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_orwns")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
