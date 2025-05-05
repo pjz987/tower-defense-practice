@@ -1,6 +1,6 @@
 extends Node
 
-var gold: int = 10:
+var gold: int = 5:
 	set(value):
 		gold = value
 		Signals.gold_changed.emit()
