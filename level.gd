@@ -22,6 +22,8 @@ var DEMON_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/demon_enemy_f
 var GHOST_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/ghost_enemy_follow_2d.tscn")
 var SLIME_ENEMY_FOLLOW_SCENE: PackedScene = preload("res://enemies/slime_enemy_follow_2d.tscn")
 var TOWER_SCENE: PackedScene = preload("res://towers/tower.tscn")
+var ICE_TOWER_SCENE: PackedScene = preload("res://towers/ice_tower.tscn")
+var POISION_TOWER_SCENE: PackedScene = preload("res://towers/poison_tower.tscn")
 
 var enemy_scenes_dict: Dictionary[String, PackedScene] = {
 	"bat": BAT_ENEMY_FOLLOW_SCENE,
@@ -63,11 +65,18 @@ func _input(event: InputEvent) -> void:
 				var selected_cell_coords: Vector2i = grid_placement_tile_map_layer.local_to_map(get_global_mouse_position())
 				var data: TileData = grid_placement_tile_map_layer.get_cell_tile_data(selected_cell_coords)
 				if data != null:
+					var tower: Tower
 					grid_placement_tile_map_layer.set_cell(selected_cell_coords, -1) # makes the TileData null
-					var tower = TOWER_SCENE.instantiate()
-					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset
+					match Economy.selected_tower:
+						Economy.Tower.ARCHER:
+							tower = TOWER_SCENE.instantiate()
+						Economy.Tower.ICE:
+							tower = ICE_TOWER_SCENE.instantiate()
+						Economy.Tower.POISON:
+							tower = POISION_TOWER_SCENE.instantiate()
+					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset + tower.tower_placement_offset
 					towers.add_child(tower)
-					Economy.gold -= tower_cost
+					Economy.gold -= tower.cost
 
 
 func grid_cell_selection() -> void:
@@ -104,14 +113,20 @@ func set_tower_placement_indicator_sprite_texture() -> void:
 			tower_placement_indicator_sprite.texture = null
 		Economy.Tower.ARCHER:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_archer.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -7.0)
 		Economy.Tower.CANNON:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_cannon.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -14.0)
 		Economy.Tower.CROSSBOW:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_crossbow.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -17.0)
 		Economy.Tower.ICE:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -10.0)
 		Economy.Tower.LIGHTNING:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_lightning_tower.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -19.0)
 		Economy.Tower.POISON:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png")
+			tower_placement_indicator_sprite.offset = Vector2(0.0, -8.0)
 		

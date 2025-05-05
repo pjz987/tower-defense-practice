@@ -6,6 +6,9 @@ var speed: float = 100.0
 @export var damage: int = 1
 var direction: Vector2
 
+enum Type {ARROW, ICE, POISON}
+@export var type: Type
+
 func _ready() -> void:
 	direction = (target_position - position).normalized()
 

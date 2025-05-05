@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdd2xa5h8j4ow"]
+
+[ext_resource type="PackedScene" uid="uid://dulmuow153dxd" path="res://towers/projectile.tscn" id="1_78ujd"]
+[ext_resource type="Texture2D" uid="uid://cfbwcempgbxcx" path="res://Simple Tower Defense/Towers/Combat Towers Projectiles/spr_tower_ice_wizard_projectile.png" id="2_gu041"]
+
+[node name="IceProjectile" instance=ExtResource("1_78ujd")]
+type = 1
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_gu041")

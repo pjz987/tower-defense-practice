@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ha8jhy6fbdt"]
+
+[ext_resource type="PackedScene" uid="uid://dulmuow153dxd" path="res://towers/projectile.tscn" id="1_bgrww"]
+[ext_resource type="Texture2D" uid="uid://cy5g75aj8m4mv" path="res://Simple Tower Defense/Towers/Combat Towers Projectiles/spr_tower_poison_wizard_projectile.png" id="2_l2wsl"]
+
+[node name="PoisonProjectile" instance=ExtResource("1_bgrww")]
+type = 2
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_l2wsl")

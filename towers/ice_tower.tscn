@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpf7lele8bm0r"]
+
+[ext_resource type="PackedScene" uid="uid://fbhxvbro6wee" path="res://towers/tower.tscn" id="1_l4mam"]
+[ext_resource type="Texture2D" uid="uid://dgxhdfnux8qli" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_ice_wizard.png" id="2_hqac7"]
+
+[node name="IceTower" instance=ExtResource("1_l4mam")]
+type = 1
+tower_placement_offset = Vector2i(0, -3)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hqac7")
