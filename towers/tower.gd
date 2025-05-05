@@ -5,13 +5,29 @@ class_name Tower
 @onready var projectile_timer: Timer = $ProjectileTimer
 
 var PROJECTILE_SCENE: PackedScene = preload("res://towers/projectile.tscn")
+var ICE_PROJECTILE_SCENE: PackedScene = preload("res://towers/ice_projectile.tscn")
+var POISON_PROJECTILE_SCENE: PackedScene = preload("res://towers/poison_projectile.tscn")
+
 
 var enemies: Array[Enemy] = []
 
 var ready_to_shoot: bool = true
 
+enum Type {ARCHER, ICE, POISON}
+@export var type: Type
+@export var cost: int = 5
+
+@export var tower_placement_offset: Vector2i
+
 func spawn_projectile(enemy: Enemy) -> void:
-	var projectile: Projectile = PROJECTILE_SCENE.instantiate()
+	var projectile: Projectile
+	match type:
+		Type.ARCHER:
+			projectile = PROJECTILE_SCENE.instantiate()
+		Type.ICE:
+			projectile = ICE_PROJECTILE_SCENE.instantiate()
+		Type.POISON:
+			projectile = POISON_PROJECTILE_SCENE.instantiate()
 	projectile.global_position = projectile_spawn_point.global_position
 	projectile.look_at(enemy.global_position)
 	projectile.target_position = enemy.global_position

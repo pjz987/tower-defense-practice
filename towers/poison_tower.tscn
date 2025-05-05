@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbqjbr04r5hfr"]
+
+[ext_resource type="PackedScene" uid="uid://fbhxvbro6wee" path="res://towers/tower.tscn" id="1_cytol"]
+[ext_resource type="Texture2D" uid="uid://ci2063u0awxlm" path="res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png" id="2_skn8w"]
+
+[node name="PoisonTower" instance=ExtResource("1_cytol")]
+type = 2
+tower_placement_offset = Vector2i(0, -1)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_skn8w")
