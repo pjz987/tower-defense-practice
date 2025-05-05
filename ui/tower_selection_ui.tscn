@@ -19,6 +19,7 @@ theme_override_font_sizes/font_size = 8
 text = "Archer: 5g"
 
 [node name="CannonTowerButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
@@ -26,6 +27,7 @@ text = "Cannon: 10g
 "
 
 [node name="CrossbowTowerButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
@@ -35,10 +37,11 @@ text = "Crossbow: 15g
 [node name="IceTowerButton" type="Button" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Ice: 15g
+text = "Ice: 10g
 "
 
 [node name="LightningTowerButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true

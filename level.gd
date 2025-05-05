@@ -54,6 +54,7 @@ func _ready() -> void:
 	EnemyManager.enemy_died.connect(check_is_wave_over)
 	GameManager.castle_destroyed.connect(func(): wave_label.text = "Game Over")
 	Signals.selected_tower_changed.connect(set_tower_placement_indicator_sprite_texture)
+	Signals.selected_tower_changed.connect(update_tower_cost)
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
@@ -76,7 +77,7 @@ func _input(event: InputEvent) -> void:
 							tower = POISION_TOWER_SCENE.instantiate()
 					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset + tower.tower_placement_offset
 					towers.add_child(tower)
-					Economy.gold -= tower.cost
+					Economy.gold -= tower_cost
 
 
 func grid_cell_selection() -> void:
@@ -130,3 +131,12 @@ func set_tower_placement_indicator_sprite_texture() -> void:
 			tower_placement_indicator_sprite.texture = load("res://Simple Tower Defense/Towers/Combat Towers/spr_tower_poison_wizard.png")
 			tower_placement_indicator_sprite.offset = Vector2(0.0, -8.0)
 		
+
+func update_tower_cost() -> void:
+	match Economy.selected_tower:
+		Economy.Tower.ARCHER:
+			tower_cost = 5
+		Economy.Tower.ICE:
+			tower_cost = 10
+		Economy.Tower.POISON:
+			tower_cost = 15

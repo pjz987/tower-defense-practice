@@ -371,15 +371,16 @@ offset = Vector2(0, -7)
 
 [node name="WaveLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 56.0
-offset_bottom = 39.0
+offset_bottom = 47.0
 text = "Wave 1"
 
 [node name="TowerSelectionUI" parent="UI" instance=ExtResource("17_fedht")]
 layout_mode = 1
-offset_left = 136.0
-offset_right = 318.0
-offset_bottom = 44.0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 289.0
+offset_bottom = 36.0
 
 [connection signal="timeout" from="EnemySpawnerTimer" to="." method="_on_enemy_spawner_timer_timeout"]
