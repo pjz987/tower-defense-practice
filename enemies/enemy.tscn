@@ -59,7 +59,8 @@ emission_shape = 1
 emission_sphere_radius = 6.0
 scale_min = 2.0
 scale_max = 2.0
-color = Color(0.2, 0.596078, 0.294118, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
 
 [node name="Enemy" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_fw1ev")
@@ -96,6 +97,7 @@ one_shot = true
 [node name="PoisonDamageTimer" type="Timer" parent="."]
 
 [node name="PoisonParticles" type="GPUParticles2D" parent="."]
+modulate = Color(0.2, 0.596078, 0.294118, 1)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_orwns")
 

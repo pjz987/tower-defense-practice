@@ -9,9 +9,9 @@ initial_velocity_max = 60.0
 gravity = Vector3(0, 98, 0)
 scale_min = 2.0
 scale_max = 4.0
-color = Color(0.396078, 0.45098, 0.572549, 1)
 
 [node name="CastleDestructionParticles" type="GPUParticles2D"]
+modulate = Color(0.396078, 0.45098, 0.572549, 1)
 emitting = false
 amount = 20
 lifetime = 0.5
