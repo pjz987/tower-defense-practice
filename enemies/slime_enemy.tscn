@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://k84ehsc0malt"]
+[gd_scene load_steps=5 format=3 uid="uid://k84ehsc0malt"]
 
 [ext_resource type="PackedScene" uid="uid://dtjrjpehlt47h" path="res://enemies/enemy.tscn" id="1_ljpcw"]
+[ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_12qxq"]
 [ext_resource type="Texture2D" uid="uid://bq5wixa6kx1v3" path="res://Simple Tower Defense/Enemies/spr_big_slime.png" id="2_wns1r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eie7s"]
+resource_local_to_scene = true
+shader = ExtResource("2_12qxq")
+shader_parameter/flash_color = Color(0.768627, 0.141176, 0.188235, 1)
+shader_parameter/flash_modifier = 0.0
 
 [node name="SlimeEnemy" instance=ExtResource("1_ljpcw")]
 gold_reward = 2
 attack_power = 2
+death_particles_color = Color(0.117647, 0.435294, 0.313726, 1)
 health = 5
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_eie7s")
 texture = ExtResource("2_wns1r")

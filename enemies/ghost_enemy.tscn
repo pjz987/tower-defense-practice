@@ -25,21 +25,6 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_60j7o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_reqg6"]
 resource_name = "fly"
 length = 0.8
@@ -67,6 +52,7 @@ _data = {
 [node name="GhostEnemy" instance=ExtResource("1_reqg6")]
 gold_reward = 3
 attack_power = 2
+death_particles_color = Color(0, 0.411765, 0.666667, 1)
 health = 4
 
 [node name="Sprite2D" parent="." index="1"]
