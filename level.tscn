@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://u8lyraii0841"]
+[gd_scene load_steps=21 format=4 uid="uid://u8lyraii0841"]
 
 [ext_resource type="Script" uid="uid://dfi1ut6rfxco6" path="res://level.gd" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://dg7so6yfbhdax" path="res://Simple Tower Defense/Environment/Grass/spr_grass_02.png" id="2_0b4ue"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b68loiovkvwba" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_02.png" id="12_v7sqt"]
 [ext_resource type="Texture2D" uid="uid://cesfs6brfehxa" path="res://Simple Tower Defense/Environment/Decoration/spr_mushroom_01.png" id="13_ilwjd"]
 [ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle/castle.tscn" id="14_5pxul"]
+[ext_resource type="Texture2D" uid="uid://dar7tkqsp7fah" path="res://Simple Tower Defense/Towers/Combat Towers/tower-range-area.png" id="15_fedht"]
 [ext_resource type="PackedScene" uid="uid://bq6qlrl1gwae2" path="res://ui/tower_selection_ui.tscn" id="17_fedht"]
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
@@ -366,6 +367,12 @@ z_index = 1
 position = Vector2(-64, -8)
 centered = false
 offset = Vector2(0, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="TowerPlacementIndicatorSprite"]
+show_behind_parent = true
+texture = ExtResource("15_fedht")
+centered = false
+offset = Vector2(-19, -19)
 
 [node name="UI" parent="." instance=ExtResource("7_n6hdu")]
 
