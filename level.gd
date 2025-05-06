@@ -67,7 +67,6 @@ func _input(event: InputEvent) -> void:
 				var data: TileData = grid_placement_tile_map_layer.get_cell_tile_data(selected_cell_coords)
 				if data != null:
 					var tower: Tower
-					grid_placement_tile_map_layer.set_cell(selected_cell_coords, -1) # makes the TileData null
 					match Economy.selected_tower:
 						Economy.Tower.ARCHER:
 							tower = TOWER_SCENE.instantiate()
@@ -75,6 +74,9 @@ func _input(event: InputEvent) -> void:
 							tower = ICE_TOWER_SCENE.instantiate()
 						Economy.Tower.POISON:
 							tower = POISION_TOWER_SCENE.instantiate()
+						Economy.Tower.NONE:
+							return
+					grid_placement_tile_map_layer.set_cell(selected_cell_coords, -1) # makes the TileData null
 					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset + tower.tower_placement_offset
 					towers.add_child(tower)
 					Economy.gold -= tower_cost
