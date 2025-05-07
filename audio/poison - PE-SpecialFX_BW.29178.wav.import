@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu81drnq3w25o"
+path="res://.godot/imported/poison - PE-SpecialFX_BW.29178.wav-b5d4ff955435b6d529637ba12bdeadba.sample"
+
+[deps]
+
+source_file="res://audio/poison - PE-SpecialFX_BW.29178.wav"
+dest_files=["res://.godot/imported/poison - PE-SpecialFX_BW.29178.wav-b5d4ff955435b6d529637ba12bdeadba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

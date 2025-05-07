@@ -1,5 +1,8 @@
 class_name Castle extends Area2D
 
+@onready var hitsound = MasterAudio.hitsound1_player
+@onready var diesound = MasterAudio.basedie1_player
+
 @onready var health_label: Label = $HealthLabel
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var damage_effect_timer: Timer = $DamageEffectTimer
@@ -25,6 +28,7 @@ func take_hit(enemy: Enemy) -> void:
 	health -= enemy.attack_power
 	sprite_2d.material.set_shader_parameter("flash_modifier", 0.5)
 	damage_effect_timer.start(0.5)
+	hitsound.play()
 
 
 func die() -> void:
@@ -32,6 +36,7 @@ func die() -> void:
 	castle_particles.global_position = global_position
 	get_tree().current_scene.add_child(castle_particles)
 	castle_particles.emitting = true
+	diesound.play()
 	queue_free()
 	health_label.text = "AND YOU\nDEAD"
 	GameManager.castle_destroyed.emit()

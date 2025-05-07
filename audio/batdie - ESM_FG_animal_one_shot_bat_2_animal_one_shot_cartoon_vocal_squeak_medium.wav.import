@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bj8yb3luwj3u3"
+path="res://.godot/imported/batdie - ESM_FG_animal_one_shot_bat_2_animal_one_shot_cartoon_vocal_squeak_medium.wav-8ba1b72e4ae86bd532e6050e1c9842da.sample"
+
+[deps]
+
+source_file="res://audio/batdie - ESM_FG_animal_one_shot_bat_2_animal_one_shot_cartoon_vocal_squeak_medium.wav"
+dest_files=["res://.godot/imported/batdie - ESM_FG_animal_one_shot_bat_2_animal_one_shot_cartoon_vocal_squeak_medium.wav-8ba1b72e4ae86bd532e6050e1c9842da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
