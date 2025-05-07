@@ -10,6 +10,7 @@ extends Node2D
 @onready var buildsound = MasterAudio.buildsound1_player
 @onready var winsound = MasterAudio.winsound1_player
 @onready var wavesound = MasterAudio.wavesound1_player
+@onready var tower_range_sprite: Sprite2D = $TowerPlacementIndicatorSprite/TowerRangeSprite
 
 @export var wave_count: int = 0
 @export var enemy_count: int = 0
@@ -61,6 +62,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
+	tower_range_sprite.visible = Economy.selected_tower != Economy.Tower.NONE
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -85,6 +87,7 @@ func _input(event: InputEvent) -> void:
 					Economy.gold -= tower_cost
 					buildsound.play()
 					
+					Economy.selected_tower = Economy.Tower.NONE
 
 
 func grid_cell_selection() -> void:
