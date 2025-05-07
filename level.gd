@@ -7,6 +7,9 @@ extends Node2D
 @onready var tower_placement_indicator_sprite: Sprite2D = $TowerPlacementIndicatorSprite
 @onready var towers: Node2D = $TowersAndCastle
 @onready var wave_label: Label = $UI/WaveLabel
+@onready var buildsound = MasterAudio.buildsound1_player
+@onready var winsound = MasterAudio.winsound1_player
+@onready var wavesound = MasterAudio.wavesound1_player
 @onready var tower_range_sprite: Sprite2D = $TowerPlacementIndicatorSprite/TowerRangeSprite
 
 @export var wave_count: int = 0
@@ -82,6 +85,8 @@ func _input(event: InputEvent) -> void:
 					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset + tower.tower_placement_offset
 					towers.add_child(tower)
 					Economy.gold -= tower_cost
+					buildsound.play()
+					
 					Economy.selected_tower = Economy.Tower.NONE
 
 
@@ -95,8 +100,10 @@ func wave_spawner() -> void:
 	wave_label.text = "Wave " + str(wave_count + 1)
 	if wave_count >= len(waves):
 		wave_label.text = "Congralutations!"
+		winsound.play()
 		return
 	var wave = waves[wave_count]
+	wavesound.play()
 	for enemy_scene_key in wave:
 		await get_tree().create_timer(2.0).timeout
 		var enemy_scene =  enemy_scenes_dict[enemy_scene_key].instantiate()

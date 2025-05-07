@@ -3,6 +3,7 @@ class_name Tower
 
 @onready var projectile_spawn_point: Node2D = $ProjectileSpawnPoint
 @onready var projectile_timer: Timer = $ProjectileTimer
+@onready var shotsound = MasterAudio.arrowshoot1_player
 @onready var upgrade_click_area_2d: Area2D = $UpgradeClickArea2D
 @onready var tower_sprite: Sprite2D = $TowerSprite
 @onready var range_sprite: Sprite2D = $TowerSprite/RangeSprite
@@ -51,8 +52,10 @@ func spawn_projectile(enemy: Enemy) -> void:
 			projectile = PROJECTILE_SCENE.instantiate()
 		Type.ICE:
 			projectile = ICE_PROJECTILE_SCENE.instantiate()
+			shotsound = MasterAudio.iceshoot1_player
 		Type.POISON:
 			projectile = POISON_PROJECTILE_SCENE.instantiate()
+			shotsound = MasterAudio.poisonshoot1_player
 	projectile.global_position = projectile_spawn_point.global_position
 	projectile.look_at(enemy.global_position)
 	projectile.target_position = enemy.global_position
@@ -64,6 +67,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		enemies.append(area)
 		if ready_to_shoot:
 			spawn_projectile(area)
+			shotsound.play()
+
+			#MasterAudio.arrowshoot1_player.play()
 			projectile_timer.start()
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -74,5 +80,7 @@ func _on_projectile_timer_timeout() -> void:
 	ready_to_shoot = true
 	if enemies:
 		spawn_projectile(enemies[0])
+		shotsound.play()
+		#MasterAudio.arrowshoot1_player.play()
 		projectile_timer.start()
 	

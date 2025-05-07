@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://bllysfpn2cu88"]
+
+[ext_resource type="Script" uid="uid://bavkb7l0g8v3k" path="res://globals/master_audio.gd" id="1_vlbof"]
+[ext_resource type="AudioStream" uid="uid://ciq3yautdkyua" path="res://audio/arrowshot1.wav" id="2_i7han"]
+[ext_resource type="AudioStream" uid="uid://cu81drnq3w25o" path="res://audio/poison - PE-SpecialFX_BW.29178.wav" id="3_euelf"]
+[ext_resource type="AudioStream" uid="uid://wmm0lmcjm38d" path="res://audio/ice - PE-SpecialFX_BW.39423.wav" id="3_i7han"]
+[ext_resource type="AudioStream" uid="uid://bgtl2pecnisx4" path="res://audio/buttonpress.wav" id="5_mq13w"]
+[ext_resource type="AudioStream" uid="uid://bmrueyjc78uqr" path="res://audio/BRS_Punch_Face_Low_Thud.wav" id="5_ny33i"]
+[ext_resource type="AudioStream" uid="uid://bof7065kb7bxf" path="res://audio/ESM_Hammer_On_Wood_Carpenter_Impact_Builder_Industrial_Tools.wav" id="6_c4ofw"]
+[ext_resource type="AudioStream" uid="uid://bj8yb3luwj3u3" path="res://audio/batdie - ESM_FG_animal_one_shot_bat_2_animal_one_shot_cartoon_vocal_squeak_medium.wav" id="8_6ll60"]
+[ext_resource type="AudioStream" uid="uid://12ivc2mxghle" path="res://audio/023_SEPT_-_Gong.wav" id="9_yonqx"]
+[ext_resource type="AudioStream" uid="uid://defu63csjyco2" path="res://audio/CrowdTeensCheer_BW.15936.wav" id="10_rrfm5"]
+[ext_resource type="AudioStream" uid="uid://cg8gn417n5t4e" path="res://audio/ExplosionBlast_S08WA.111.wav" id="11_yonqx"]
+
+[node name="MasterAudio" type="Node"]
+script = ExtResource("1_vlbof")
+
+[node name="ArrowShoot1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_i7han")
+volume_db = -9.75
+
+[node name="PoisonShoot1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_euelf")
+volume_db = -8.667
+
+[node name="IceShoot1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i7han")
+volume_db = -5.958
+
+[node name="BaseHit1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ny33i")
+volume_db = -8.0
+
+[node name="ButtonPress1" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("5_mq13w")
+volume_db = -4.875
+
+[node name="BuildSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_c4ofw")
+volume_db = -7.333
+
+[node name="BatDie1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6ll60")
+
+[node name="WaveStart1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_yonqx")
+volume_db = -9.333
+
+[node name="WinSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_rrfm5")
+
+[node name="BaseDie1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_yonqx")
+volume_db = -9.0
+
+[node name="AudioStreamPlayer2D11" type="AudioStreamPlayer2D" parent="."]
