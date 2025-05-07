@@ -7,6 +7,7 @@ extends Node2D
 @onready var tower_placement_indicator_sprite: Sprite2D = $TowerPlacementIndicatorSprite
 @onready var towers: Node2D = $TowersAndCastle
 @onready var wave_label: Label = $UI/WaveLabel
+@onready var tower_range_sprite: Sprite2D = $TowerPlacementIndicatorSprite/TowerRangeSprite
 
 @export var wave_count: int = 0
 @export var enemy_count: int = 0
@@ -58,6 +59,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	grid_cell_selection()
+	tower_range_sprite.visible = Economy.selected_tower != Economy.Tower.NONE
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -80,6 +82,7 @@ func _input(event: InputEvent) -> void:
 					tower.global_position = selected_cell_coords * cell_size + tower_placement_offset + tower.tower_placement_offset
 					towers.add_child(tower)
 					Economy.gold -= tower_cost
+					Economy.selected_tower = Economy.Tower.NONE
 
 
 func grid_cell_selection() -> void:

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://x3ktq30xiug2"]
+
+[ext_resource type="Script" uid="uid://dfdxsk88kbk4" path="res://ui/tower_upgrade_ui.gd" id="1_l5g43"]
+
+[node name="TowerUpgradeUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5g43")
+
+[node name="TowerStatsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 8
+text = "Arrow Tower
+Fires arrows at enemies
+Fire Rate: 1.0s"
+autowrap_mode = 2

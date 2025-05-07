@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://u8lyraii0841"]
+[gd_scene load_steps=22 format=4 uid="uid://u8lyraii0841"]
 
 [ext_resource type="Script" uid="uid://dfi1ut6rfxco6" path="res://level.gd" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://dg7so6yfbhdax" path="res://Simple Tower Defense/Environment/Grass/spr_grass_02.png" id="2_0b4ue"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dlmmygc8q7j2q" path="res://castle/castle.tscn" id="14_5pxul"]
 [ext_resource type="Texture2D" uid="uid://dar7tkqsp7fah" path="res://Simple Tower Defense/Towers/Combat Towers/tower-range-area.png" id="15_fedht"]
 [ext_resource type="PackedScene" uid="uid://bq6qlrl1gwae2" path="res://ui/tower_selection_ui.tscn" id="17_fedht"]
+[ext_resource type="PackedScene" uid="uid://x3ktq30xiug2" path="res://ui/tower_upgrade_ui.tscn" id="18_4c15r"]
 
 [sub_resource type="Curve2D" id="Curve2D_oi3di"]
 _data = {
@@ -368,7 +369,7 @@ position = Vector2(-64, -8)
 centered = false
 offset = Vector2(0, -7)
 
-[node name="Sprite2D" type="Sprite2D" parent="TowerPlacementIndicatorSprite"]
+[node name="TowerRangeSprite" type="Sprite2D" parent="TowerPlacementIndicatorSprite"]
 show_behind_parent = true
 texture = ExtResource("15_fedht")
 centered = false
@@ -385,9 +386,14 @@ text = "Wave 1"
 
 [node name="TowerSelectionUI" parent="UI" instance=ExtResource("17_fedht")]
 layout_mode = 1
-offset_left = 144.0
-offset_top = 16.0
-offset_right = 289.0
-offset_bottom = 36.0
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 212.0
+offset_bottom = 22.0
+
+[node name="TowerUpgradeUI" parent="UI" instance=ExtResource("18_4c15r")]
+layout_mode = 1
+offset_left = 216.0
+offset_right = 216.0
 
 [connection signal="timeout" from="EnemySpawnerTimer" to="." method="_on_enemy_spawner_timer_timeout"]
