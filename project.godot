@@ -21,6 +21,7 @@ Signals="*res://globals/signals.gd"
 Economy="*res://globals/economy.gd"
 EnemyManager="*res://globals/enemy_manager.gd"
 GameManager="*res://globals/game_manager.gd"
+MasterAudio="*res://globals/MasterAudio.tscn"
 
 [display]
 
