@@ -16,8 +16,10 @@ var TOWER_UPGRADE_UI_SCENE: PackedScene = preload("res://ui/tower_upgrade_ui.tsc
 var enemies: Array[Enemy] = []
 var ready_to_shoot: bool = true
 var mouse_over_upgrade_area: bool = false
-enum Type {ARCHER, ICE, POISON}
 
+enum Level {ONE, TWO, THREE}
+@export var level: Level
+enum Type {ARCHER, ICE, POISON}
 @export var type: Type
 @export var cost: int = 5
 @export var tower_placement_offset: Vector2i
