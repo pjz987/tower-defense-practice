@@ -13,6 +13,7 @@ shader_parameter/flash_modifier = 0.0
 [node name="DemonEnemy" instance=ExtResource("1_8aj5s")]
 gold_reward = 10
 attack_power = 5
+type = 2
 health = 10
 
 [node name="Sprite2D" parent="." index="1"]

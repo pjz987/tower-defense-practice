@@ -10,6 +10,7 @@ var ENEMY_DEATH_PARTICLES_SCENE: PackedScene = preload("res://enemies/enemy_deat
 @onready var poisoned_timer: Timer = $PoisonedTimer
 @onready var poison_damage_timer: Timer = $PoisonDamageTimer
 @onready var poison_particles: GPUParticles2D = $PoisonParticles
+@onready var deathsound = MasterAudio.batdie1_player
 
 @export var gold_reward: int = 1
 @export var attack_power: int = 1
@@ -17,6 +18,8 @@ var ENEMY_DEATH_PARTICLES_SCENE: PackedScene = preload("res://enemies/enemy_deat
 @export var iced_flash_color: Color = Color("#0069aa")
 @export var poisoned_flash_color: Color = Color("#33984b")
 @export var death_particles_color: Color = Color("#891e2b")
+enum Type {BAT, SLIME, DEMON, GHOST}
+@export var type: Type
 
 var is_iced: bool = false
 var is_poisoned: bool = false
@@ -32,9 +35,19 @@ var castle: Castle = null
 		health = value
 		if health <= 0:
 			die()
+			
+
 
 
 func _ready() -> void:
+	match type:
+		Type.DEMON:
+			deathsound = MasterAudio.demondie1_player
+		Type.GHOST:
+			deathsound = MasterAudio.ghostdie1_player
+		Type.SLIME:
+			deathsound = MasterAudio.slimedie1_player
+		
 	damage_effect_timer.timeout.connect(func(): 
 		sprite_2d.material.set_shader_parameter("flash_modifier", 0.0)
 		is_damage_effect = false
@@ -61,6 +74,7 @@ func take_hit(projectile: Projectile) -> void:
 	
 
 func die() -> void:
+	deathsound.play()
 	queue_free()
 	Economy.gold += gold_reward
 	var death_particles: GPUParticles2D = ENEMY_DEATH_PARTICLES_SCENE.instantiate()
