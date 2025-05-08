@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bllysfpn2cu88"]
+[gd_scene load_steps=15 format=3 uid="uid://bllysfpn2cu88"]
 
 [ext_resource type="Script" uid="uid://bavkb7l0g8v3k" path="res://globals/master_audio.gd" id="1_vlbof"]
 [ext_resource type="AudioStream" uid="uid://ciq3yautdkyua" path="res://audio/arrowshot1.wav" id="2_i7han"]
@@ -11,13 +11,16 @@
 [ext_resource type="AudioStream" uid="uid://12ivc2mxghle" path="res://audio/023_SEPT_-_Gong.wav" id="9_yonqx"]
 [ext_resource type="AudioStream" uid="uid://defu63csjyco2" path="res://audio/CrowdTeensCheer_BW.15936.wav" id="10_rrfm5"]
 [ext_resource type="AudioStream" uid="uid://cg8gn417n5t4e" path="res://audio/ExplosionBlast_S08WA.111.wav" id="11_yonqx"]
+[ext_resource type="AudioStream" uid="uid://ctqamefldf1af" path="res://audio/ghostmoan.wav" id="12_0oxcq"]
+[ext_resource type="AudioStream" uid="uid://b2uatx2truhp4" path="res://audio/fuuuuck.wav" id="12_rrfm5"]
+[ext_resource type="AudioStream" uid="uid://5maryg1x6l73" path="res://audio/slimepop.wav" id="14_0oxcq"]
 
 [node name="MasterAudio" type="Node"]
 script = ExtResource("1_vlbof")
 
 [node name="ArrowShoot1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_i7han")
-volume_db = -9.75
+volume_db = -12.417
 
 [node name="PoisonShoot1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_euelf")
@@ -25,7 +28,7 @@ volume_db = -8.667
 
 [node name="IceShoot1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i7han")
-volume_db = -5.958
+volume_db = -17.958
 
 [node name="BaseHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ny33i")
@@ -42,16 +45,29 @@ volume_db = -7.333
 
 [node name="BatDie1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6ll60")
+volume_db = -9.0
 
 [node name="WaveStart1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_yonqx")
-volume_db = -9.333
+volume_db = -12.666
 
 [node name="WinSound1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_rrfm5")
+volume_db = -11.334
 
 [node name="BaseDie1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_yonqx")
 volume_db = -9.0
 
-[node name="AudioStreamPlayer2D11" type="AudioStreamPlayer2D" parent="."]
+[node name="GhostDie1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_0oxcq")
+volume_db = -9.333
+
+[node name="DemonDie1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_rrfm5")
+volume_db = 15.0
+
+[node name="SlimeDie1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0oxcq")
+volume_db = -8.0
+pitch_scale = 1.7

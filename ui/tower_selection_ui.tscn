@@ -53,3 +53,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Poison: 15g
 "
+
+[connection signal="pressed" from="ArcherTowerButton" to="." method="_on_archer_tower_button_pressed"]
+[connection signal="pressed" from="IceTowerButton" to="." method="_on_ice_tower_button_pressed"]
+[connection signal="pressed" from="PoisonTowerButton" to="." method="_on_poison_tower_button_pressed"]

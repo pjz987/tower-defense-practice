@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt21ffe5x7g1o"]
+[gd_scene load_steps=4 format=3 uid="uid://bt21ffe5x7g1o"]
 
 [ext_resource type="PackedScene" uid="uid://dtjrjpehlt47h" path="res://enemies/enemy.tscn" id="1_e7gs6"]
-[ext_resource type="Texture2D" uid="uid://blhfoep1umuhy" path="res://Simple Tower Defense/Enemies/spr_bat.png" id="2_5gx0a"]
+[ext_resource type="Shader" uid="uid://co2ghn58u5gh" path="res://enemies/enemy_damage_effect.gdshader" id="2_e7gs6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gx0a"]
+resource_local_to_scene = true
+shader = ExtResource("2_e7gs6")
+shader_parameter/flash_color = Color(0.768627, 0.141176, 0.188235, 1)
+shader_parameter/flash_modifier = 0.0
 
 [node name="BatEnemy" instance=ExtResource("1_e7gs6")]
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_5gx0a")
+material = SubResource("ShaderMaterial_5gx0a")
