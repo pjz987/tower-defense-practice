@@ -13,6 +13,7 @@ shader_parameter/flash_modifier = 0.0
 [node name="SlimeEnemy" instance=ExtResource("1_ljpcw")]
 gold_reward = 2
 attack_power = 2
+death_particles_color = Color(0.117647, 0.435294, 0.313726, 1)
 type = 1
 health = 5
 

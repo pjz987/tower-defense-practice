@@ -2,3 +2,4 @@ extends Node
 
 signal gold_changed
 signal selected_tower_changed
+signal upgrade_selected_tower_changed

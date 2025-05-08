@@ -52,6 +52,7 @@ _data = {
 [node name="GhostEnemy" instance=ExtResource("1_reqg6")]
 gold_reward = 3
 attack_power = 2
+death_particles_color = Color(0, 0.411765, 0.666667, 1)
 type = 3
 health = 4
 

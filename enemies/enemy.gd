@@ -17,7 +17,7 @@ var ENEMY_DEATH_PARTICLES_SCENE: PackedScene = preload("res://enemies/enemy_deat
 @export var attack_flash_color: Color = Color("#c42430")
 @export var iced_flash_color: Color = Color("#0069aa")
 @export var poisoned_flash_color: Color = Color("#33984b")
-
+@export var death_particles_color: Color = Color("#891e2b")
 enum Type {BAT, SLIME, DEMON, GHOST}
 @export var type: Type
 
@@ -77,9 +77,10 @@ func die() -> void:
 	deathsound.play()
 	queue_free()
 	Economy.gold += gold_reward
-	var death_particles = ENEMY_DEATH_PARTICLES_SCENE.instantiate()
+	var death_particles: GPUParticles2D = ENEMY_DEATH_PARTICLES_SCENE.instantiate()
 	death_particles.global_position = global_position
 	get_tree().current_scene.add_child(death_particles)
+	death_particles.modulate = death_particles_color
 	death_particles.emitting = true
 	EnemyManager.enemy_died.emit.call_deferred()
 
